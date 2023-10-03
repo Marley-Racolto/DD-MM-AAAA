@@ -1,0 +1,128 @@
+class Program
+{
+    class Datas
+    {
+        private int dia, mes, ano;
+        public Datas(int dia, int mes, int ano)
+        {
+            if (DataValida(dia, mes, ano))
+            {
+                this.dia = dia;
+                this.mes = mes;
+                this.ano = ano;
+            }
+            else
+            {
+
+                this.dia = 1;
+                this.mes = 1;
+                this.ano = 1;
+            }
+        }
+        public int GetDia()
+        {
+        C: \Users\unisanta\source\repos\eagora\eagora\Program.cs 3
+       105
+       106
+       107
+       108
+       109
+       110
+       111
+       112
+       113
+       114
+       115
+       116
+       117
+       118
+       119
+       120
+       121
+       122
+       123
+       124
+       125
+       126
+       127
+       128
+       129
+       130
+       131
+       132
+       133
+       134
+       135
+       136
+       137
+       138
+       139
+       140
+       141
+       142
+       143
+       144
+       145
+       146
+       147
+       148
+       149
+       150
+       151
+       152
+       153
+        return dia;
+        }
+        public int GetMes()
+        {
+            return mes;
+        }
+        public int GetAno()
+        {
+            return ano;
+        }
+        public bool IsBissexto()
+        {
+            return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 ==
+           0);
+        }
+        public Datas Clone()
+        {
+            return new Datas(this.dia, this.mes, this.ano);
+        }
+        private bool DataValida(int dia, int mes, int ano)
+        {
+            if (mes < 1 || mes > 12)
+                return false;
+            int[] diasNoMes = { 31, 28, 31, 30, 31, 30, 31, 31, 30,
+31, 30, 31 };
+            if (IsBissexto(ano))
+                diasNoMes[1] = 29;
+            return dia >= 1 && dia <= diasNoMes[mes - 1];
+        }
+        private bool IsBissexto(int ano)
+        {
+            return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 ==
+           0);
+        }
+    }
+    static void Main()
+    {
+        Datas data1 = new Datas(6, 9, 2023);
+        Console.WriteLine($"Dia: {data1.GetDia()}, Mês: {data1.GetMes
+       ()}, Ano: {data1.GetAno()}, Bissexto: {data1.IsBissexto()}
+       ");
+       
+        Datas data2 = data1.Clone();
+        Console.WriteLine($"Cópia - Dia: {data2.GetDia()}, Mês:
+       C: \Users\unisanta\source\repos\eagora\eagora\Program.cs 4
+       154
+       155
+       156
+   { data2.GetMes()}, Ano: { data2.GetAno()}, Bissexto:
+        {
+            data2.IsBissexto
+        ()},");
+    }
+}// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
